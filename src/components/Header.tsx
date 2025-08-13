@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, User, LogOut } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 import logo from "@/assets/tradeprofx-logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { user, signOut } = useAuth();
 
   const navigation = [
     { name: "Home", href: "/" },
@@ -41,9 +43,34 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
-            <Button variant="default" className="bg-gradient-gold text-secondary font-semibold shadow-gold">
-              Start Trading
-            </Button>
+            {user ? (
+              <div className="flex items-center space-x-2">
+                <Button variant="ghost" size="sm">
+                  <User className="w-4 h-4 mr-2" />
+                  {user.email}
+                </Button>
+                <Button variant="ghost" size="sm" onClick={signOut}>
+                  <LogOut className="w-4 h-4" />
+                </Button>
+              </div>
+            ) : (
+              <>
+                <Link to="/auth">
+                  <Button variant="ghost" size="sm">
+                    Sign In
+                  </Button>
+                </Link>
+                <a 
+                  href="https://track.deriv.com/_Qfsds_lvdKX1k0YPxVS0A2Nd7ZgqdRLk/1/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button variant="default" className="bg-gradient-gold text-secondary font-semibold shadow-gold">
+                    Start Trading
+                  </Button>
+                </a>
+              </>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -75,9 +102,47 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
-              <Button variant="default" className="w-full mt-4 bg-gradient-gold text-secondary font-semibold">
-                Start Trading
-              </Button>
+              
+              {/* Mobile Auth & CTA */}
+              <div className="pt-4 space-y-2">
+                {user ? (
+                  <div className="space-y-2">
+                    <div className="text-sm text-muted-foreground px-3">
+                      Signed in as: {user.email}
+                    </div>
+                    <Button 
+                      variant="ghost" 
+                      className="w-full justify-start" 
+                      onClick={() => {
+                        signOut();
+                        setIsMenuOpen(false);
+                      }}
+                    >
+                      <LogOut className="w-4 h-4 mr-2" />
+                      Sign Out
+                    </Button>
+                  </div>
+                ) : (
+                  <Link 
+                    to="/auth"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <Button variant="outline" className="w-full mb-2">
+                      Sign In
+                    </Button>
+                  </Link>
+                )}
+                <a 
+                  href="https://track.deriv.com/_Qfsds_lvdKX1k0YPxVS0A2Nd7ZgqdRLk/1/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <Button variant="default" className="w-full bg-gradient-gold text-secondary font-semibold">
+                    Start Trading
+                  </Button>
+                </a>
+              </div>
             </div>
           </div>
         )}

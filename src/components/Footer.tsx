@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MessageCircle } from "lucide-react";
+import { Mail, Phone, MessageCircle, Youtube, Download, Music, Twitter, Facebook } from "lucide-react";
 import logo from "@/assets/tradeprofx-logo.png";
 
 const Footer = () => {
   return (
     <footer className="bg-secondary text-secondary-foreground">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="py-12 grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Brand Section */}
           <div className="md:col-span-2">
             <img src={logo} alt="TRADEPROFX" className="h-8 w-auto mb-4 filter brightness-0 invert" />
@@ -68,6 +68,79 @@ const Footer = () => {
                 >
                   <MessageCircle className="h-4 w-4 mr-2" />
                   WhatsApp
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Social Links */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-primary">Follow Us</h3>
+            <ul className="space-y-2">
+              <li>
+                <a 
+                  href="https://www.youtube.com/channel/UCMDzH0sYbNcohLnx4wihG8Q"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-secondary-foreground/80 hover:text-primary transition-colors"
+                >
+                  <Youtube className="h-4 w-4 mr-2" />
+                  YouTube
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://drive.google.com/drive/folders/1s5kqsS0fFgGE-4YJGrRwIA_gN9w_m5EH?usp=drive_link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-secondary-foreground/80 hover:text-primary transition-colors"
+                >
+                  <Download className="h-4 w-4 mr-2" />
+                  Free Bots
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://www.tiktok.com/@tradeprofx.pro?_t=8pOtdGbyKbG&_r=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-secondary-foreground/80 hover:text-primary transition-colors"
+                >
+                  <Music className="h-4 w-4 mr-2" />
+                  TikTok
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://x.com/TradeProFX9?t=hr_QLHVbx1LoUfcnVX7kjw&s=09"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-secondary-foreground/80 hover:text-primary transition-colors"
+                >
+                  <Twitter className="h-4 w-4 mr-2" />
+                  Twitter/X
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://www.facebook.com/profile.php?id=61565308321001&mibextid=ZbWKwL"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-secondary-foreground/80 hover:text-primary transition-colors"
+                >
+                  <Facebook className="h-4 w-4 mr-2" />
+                  Facebook
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://t.me/Tradeprofx9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-secondary-foreground/80 hover:text-primary transition-colors"
+                >
+                  <MessageCircle className="h-4 w-4 mr-2" />
+                  Telegram
                 </a>
               </li>
             </ul>
