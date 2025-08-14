@@ -32,9 +32,15 @@ const Index = () => {
             Master binary options and Deriv trading with professional strategies, expert analysis, and proven risk management techniques.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gradient-gold text-secondary font-semibold shadow-gold hover:shadow-lg transition-all">
-              Start Trading Today
-            </Button>
+            <a 
+              href="https://track.deriv.com/_Qfsds_lvdKX1k0YPxVS0A2Nd7ZgqdRLk/1/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button size="lg" className="bg-gradient-gold text-secondary font-semibold shadow-gold hover:shadow-lg transition-all">
+                Start Trading Today
+              </Button>
+            </a>
             <Button size="lg" variant="outline" className="border-secondary-foreground text-secondary-foreground hover:bg-secondary-foreground hover:text-secondary">
               Watch Trading Videos
             </Button>
@@ -187,23 +193,78 @@ const Index = () => {
         </div>
       </section>
 
-      {/* YouTube Section */}
+      {/* Learning Videos Section */}
       <section className="py-20 bg-muted/30">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6 text-foreground">Live Trading Education</h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Watch live trading sessions and educational content on our YouTube channel
-          </p>
-          <div className="bg-background p-8 rounded-lg shadow-medium">
-            <div className="aspect-video bg-muted rounded-lg flex items-center justify-center mb-6">
-              <div className="text-center">
-                <BookOpen className="h-16 w-16 text-primary mx-auto mb-4" />
-                <p className="text-lg font-semibold text-foreground">Latest Trading Video</p>
-                <p className="text-muted-foreground">Live market analysis and trading strategies</p>
-              </div>
-            </div>
-            <Button size="lg" className="bg-gradient-gold text-secondary font-semibold shadow-gold">
-              Watch on YouTube
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-6 text-foreground">Trading Education Videos</h2>
+            <p className="text-xl text-muted-foreground mb-8">
+              Master trading with our comprehensive video tutorials and live market analysis
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { id: "N0D-F_OaJqk", title: "Binary Options Strategy for Beginners" },
+              { id: "8VTr29ZQr8o", title: "Advanced Deriv Trading Techniques" },
+              { id: "nJwPMYVfVSI", title: "Risk Management Fundamentals" },
+              { id: "a41aH5q03ck", title: "Market Analysis & Timing" },
+              { id: "sOFsOZATk6s", title: "Volatility Index Trading" },
+              { id: "pc6dzkDU904", title: "Professional Trading Psychology" },
+              { id: "nWeUvL5Wbfo", title: "Live Trading Session" },
+              { id: "UjUwGF3cPdA", title: "Money Management Strategies" }
+            ].map((video, index) => (
+              <Card key={video.id} className="shadow-soft hover:shadow-medium transition-all hover:-translate-y-1">
+                <CardContent className="p-0">
+                  <div className="aspect-video bg-muted rounded-t-lg relative overflow-hidden">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${video.id}`}
+                      title={video.title}
+                      className="w-full h-full"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-semibold text-foreground mb-2">{video.title}</h3>
+                    <div className="flex justify-between items-center">
+                      <a 
+                        href={`https://youtu.be/${video.id}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline text-sm"
+                      >
+                        Watch on YouTube
+                      </a>
+                      <a 
+                        href="https://track.deriv.com/_Qfsds_lvdKX1k0YPxVS0A2Nd7ZgqdRLk/1/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Button size="sm" className="bg-gradient-gold text-secondary">
+                          Start Trading
+                        </Button>
+                      </a>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <a 
+              href="https://track.deriv.com/_Qfsds_lvdKX1k0YPxVS0A2Nd7ZgqdRLk/1/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button size="lg" className="bg-gradient-gold text-secondary font-semibold shadow-gold mr-4">
+                Open Deriv Account
+              </Button>
+            </a>
+            <Button size="lg" variant="outline">
+              More Trading Videos
             </Button>
           </div>
         </div>
@@ -217,11 +278,15 @@ const Index = () => {
             Join thousands of traders who have transformed their trading with TRADEPROFX strategies
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact">
+            <a 
+              href="https://track.deriv.com/_Qfsds_lvdKX1k0YPxVS0A2Nd7ZgqdRLk/1/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button size="lg" className="bg-gradient-gold text-secondary font-semibold shadow-gold">
-                Get Started Today
+                Open Deriv Account
               </Button>
-            </Link>
+            </a>
             <Link to="/blog">
               <Button size="lg" variant="outline" className="border-secondary-foreground text-secondary-foreground hover:bg-secondary-foreground hover:text-secondary">
                 Explore Strategies
